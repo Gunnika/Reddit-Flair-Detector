@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Reddit Flair Detector</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
 </head>
 <body>
-	<div>
-	    <form action="/result" method="POST">
-			<label for = "homepage">Enter the Reddit India Post URL</label>
-			<br>
-			<input type="url" id="homepage" name="homepage">
-			<br>
-			<input type="submit" value="Submit">
-  		</form>
+<div class = "strip">
+	<div class="header">
+		<h1>Reddit Flair Detector</h1>
+		<img src="logo.png" alt="Reddit Icon">
 	</div>
-
+</div>
+<div id="cover">
+  <form method="get" action="">
+    <div class="tb">
+      <div class="td"><input type="text" placeholder="Enter Post URL" required></div>
+      <div class="td" id="s-cover">
+        <button type="submit">
+          <div id="s-circle"></div>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 </body>
 </html>
