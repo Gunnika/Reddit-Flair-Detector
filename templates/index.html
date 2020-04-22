@@ -23,10 +23,10 @@
     <div class="main-body">
       <div>
         <div class="form-container">
-          <form action="" class="Search">
+          <form action= "{{ url_for('index') }}" method="POST" class="Search">
             <input
               class="Search-box"
-              type="search"
+              type="url"
               placeholder="Enter Post URL"
             />
             <span class="fa fa-search"></span>
