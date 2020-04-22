@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
@@ -26,14 +27,14 @@
             <input
               class="Search-box"
               type="search"
-              placeholder="Enter Text..."
+              placeholder="Enter Post URL"
             />
             <span class="fa fa-search"></span>
           </form>
         </div>
 
         <div class="results">
-          <p><i class="fas fa-fire-alt"></i> Flair</p>
+          <p><i class="fas fa-fire-alt"></i> Detected Flair</p>
           <h1>Coronavirus</h1>
         </div>
       </div>
