@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
-</head>
-<body>
-<div class = "strip">
-	<div class="header">
-		<h1>Reddit Flair Detector</h1>
-		<img src="logo.png" alt="Reddit Icon">
-	</div>
-</div>
-<div id="cover">
-  <form method="get" action="">
-    <div class="tb">
-      <div class="td"><input type="text" placeholder="Enter Post URL" required></div>
-      <div class="td" id="s-cover">
-        <button type="submit">
-          <div id="s-circle"></div>
-          <span></span>
-        </button>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/96aea49251.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Reddit Flair Detector</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="icon">
+        <i class="fab fa-reddit"></i>
+      </div>
+      <div class="title">Reddit Flair Detector</div>
+    </div>
+
+    <div class="main-body">
+      <div>
+        <div class="form-container">
+          <form action="" class="Search">
+            <input
+              class="Search-box"
+              type="search"
+              placeholder="Enter Text..."
+            />
+            <span class="fa fa-search"></span>
+          </form>
+        </div>
+
+        <div class="results">
+          <p><i class="fas fa-fire-alt"></i> Flair</p>
+          <h1>Coronavirus</h1>
+        </div>
       </div>
     </div>
-  </form>
-</div>
-</body>
+  </body>
 </html>
