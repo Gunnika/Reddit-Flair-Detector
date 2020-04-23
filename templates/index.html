@@ -25,19 +25,23 @@
         <div class="form-container">
           <form action= "{{ url_for('index') }}" method="POST" class="Search">
             <input
-              class="Search-box"
-              type="url"
-              placeholder="Enter Post URL"
+              class = "Search-box"
+              type = "url"
+              placeholder = "Enter Post URL"
+              name = "posturl"
             />
             <span class="fa fa-search"></span>
           </form>
         </div>
 
         <div class="results">
-          <p><i class="fas fa-fire-alt"></i> Detected Flair</p>
-          <h1>Coronavirus</h1>
+          {% if result %}
+              <p><i class="fas fa-fire-alt"></i> Detected Flair</p>
+              <h1>{{ result }}</h1>
+          {% endif %}
         </div>
       </div>
     </div>
+
   </body>
 </html>

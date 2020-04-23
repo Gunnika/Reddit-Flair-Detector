@@ -9,6 +9,9 @@ import praw
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+# Use pickle to load in the pre-trained model.
+loaded_model = pickle.load(open("model/model.pkl", 'rb'))
+
 reddit = praw.Reddit(client_id='R30fcxAZLJ7Wyw',
                      client_secret='8Zf87krHYa_zXRXPWEF8hK2Twfs',
                      user_agent='project1',
@@ -45,6 +48,7 @@ def detect_flair(url,loaded_model):
     comment = ''
     for top_level_comment in submission.comments:
         comment = comment + ' ' + top_level_comment.body
+
     data["comment"] = comment
     data['title'] = preprocess_input(data['title'])
     data['comment'] = preprocess_input(data['comment'])
@@ -53,13 +57,6 @@ def detect_flair(url,loaded_model):
     return flairs[loaded_model.predict([data['title']])[0]]
 
 
-# Use pickle to load in the pre-trained model.
-loaded_model = pickle.load(open("model/model.pkl", 'rb'))
-
-prediction = detect_flair(url, loaded_model )
-
-return flask.render_template('main.html', result=prediction,)
-
 #creating instance of the class
 app=Flask(__name__)
 
@@ -67,11 +64,17 @@ app=Flask(__name__)
 @app.route('/' ,  methods=['GET', 'POST'])
 # @app.route('/index')
 def index():
-	if flask.request.method == 'GET':
-        return(flask.render_template('index.html'))
+    if flask.request.method == 'GET':
+        return flask.render_template('index.html')
+
     if flask.request.method == 'POST':
-    	url = flask.request.form['input']
+        url = flask.request.form['posturl']
+        if url:
+            prediction = detect_flair(url, loaded_model)
+            return flask.render_template('index.html', result = str(prediction))
+        else:
+            return flask.render_template('index.html')
 
 if __name__=='__main__':
-	app.secret_key = os.urandom(12)
-	app.run(host='0.0.0.0', debug=True)
+    app.secret_key = os.urandom(12)
+    app.run(host='0.0.0.0', debug=True)
