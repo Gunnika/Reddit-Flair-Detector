@@ -5,7 +5,7 @@ import flask
 import pickle
 from flask import Flask, render_template, request
 import praw
-
+import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
