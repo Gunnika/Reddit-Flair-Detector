@@ -69,11 +69,8 @@ def index():
 
     if flask.request.method == 'POST':
         url = flask.request.form['posturl']
-        if url:
-            prediction = detect_flair(url, loaded_model)
-            return flask.render_template('index.html', result = str(prediction))
-        else:
-            return flask.render_template('index.html')
+        prediction = detect_flair(url, loaded_model)
+        return flask.render_template('index.html', result = str(prediction))
 
 if __name__=='__main__':
     app.secret_key = os.urandom(12)

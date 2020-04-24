@@ -23,7 +23,7 @@
     <div class="main-body">
       <div>
         <div class="form-container">
-          <form action= "{{ url_for('index') }}" method="POST" class="Search">
+          <form action= "/" method="POST" class="Search">
             <input
               class = "Search-box"
               type = "url"
@@ -33,13 +33,14 @@
             <span class="fa fa-search"></span>
           </form>
         </div>
-
-        <div class="results">
-          {% if result %}
-              <p><i class="fas fa-fire-alt"></i> Detected Flair</p>
-              <h1>{{ result }}</h1>
-          {% endif %}
-        </div>
+        {% if result %}
+          <div class="results">
+            
+                <p><i class="fas fa-fire-alt"></i> Detected Flair</p>
+                <h1>{{ result }}</h1>
+            
+          </div>
+        {% endif %}
       </div>
     </div>
 
