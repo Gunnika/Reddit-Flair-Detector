@@ -62,7 +62,7 @@ app=Flask(__name__)
 
 #to tell flask what url shoud trigger the function index()
 @app.route('/' ,  methods=['GET', 'POST'])
-# @app.route('/index')
+
 def index():
     if flask.request.method == 'GET':
         return flask.render_template('index.html')
