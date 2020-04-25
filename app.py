@@ -10,7 +10,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 # Use pickle to load in the pre-trained model.
-loaded_model = pickle.load(open("rfmodel/model.pkl", 'rb'))
+loaded_model = pickle.load(open("model/rfmodel.pkl", 'rb'))
 
 reddit = praw.Reddit(client_id='R30fcxAZLJ7Wyw',
                      client_secret='8Zf87krHYa_zXRXPWEF8hK2Twfs',
