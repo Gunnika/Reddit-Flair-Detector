@@ -2,6 +2,7 @@
 import os
 import numpy as np
 import flask
+from flask import jsonify
 import pickle
 from flask import Flask, render_template, request
 import praw
@@ -68,6 +69,20 @@ def index():
         url = flask.request.form['posturl']
         prediction = detect_flair(url, loaded_model)
         return flask.render_template('index.html', result = str(prediction))
+
+
+@app.route('/automated_testing', methods = ['GET', 'POST'])
+def automated_testing():
+    if request.method == 'POST':
+        predictions = {}
+        f = request.files['upload_file']
+        if f:
+            for line in f:
+                line = line.decode("utf-8")
+                pred = detect_flair(line , loaded_model)
+                predictions[line] = pred
+    return jsonify(predictions)
+
 
 if __name__=='__main__':
     app.secret_key = os.urandom(12)
