@@ -34,7 +34,6 @@ def preprocess_input(text):
     filtered_sentence = " ".join(filtered_sentence.split())
     return(filtered_sentence)
 
-
 def detect_flair(url,loaded_model):
 
     submission = reddit.submission(url=url)
@@ -55,7 +54,6 @@ def detect_flair(url,loaded_model):
     data['combine'] = data['title'] + ' ' + data['comment']
 
     return flairs[loaded_model.predict([data['title']])[0]]
-
 
 #creating instance of the class
 app=Flask(__name__)
