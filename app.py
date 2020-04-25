@@ -16,8 +16,7 @@ loaded_model = pickle.load(open("model/tmodel.pkl", 'rb'))
 reddit = praw.Reddit(client_id='R30fcxAZLJ7Wyw',
                      client_secret='8Zf87krHYa_zXRXPWEF8hK2Twfs',
                      user_agent='project1',
-                     username = 'gbatra',
-                     password = "HOLYMOLY1999"
+                     username = 'gbatra'
                     )
 
 flairs={0:'Politics',1:'Non-Political',2:'AskIndia', 3:"[R]eddiquette", 4:'Science/Technology', 5:'Policy/Economy', 6:'Business/Finance', 7:'Scheduled', 8:'Sports', 9:'Food', 10:'Photography', 11:'AMA', 12:'Coronavirus'}
