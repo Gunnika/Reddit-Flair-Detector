@@ -22,7 +22,6 @@ The application can be found live at [Reddit Flair Detector](https://redditflair
 0. [Data Pre-Processing](#data-pre-processing)
 0. [Building a Flair Detector](#building-a-flair-detector)
 0. [Building a Flask Application](#building-a-flask-application)
-0. [Integrating WebApp and Trained Model](#integrating-webapp-and-trained-model)
 0. [Deploying as a Web Service](#deploying-as-a-web-service)
 
 ### Data Acquisition
@@ -46,7 +45,17 @@ The class was then dropped from the dataset
 The Data pre-processing step involved cleaning the data for better representation and usability. The stop words were removed, words tokenized and coverted into lowercase. 
 
 ### Building a Flair Detector
+Different models analysed:
+- Logistic Regression
+- Linear Support Vector Machine
+- Naive Bayes Classifier
+- Decision Trees
+- Random forest
+
+The best results were obtained using Random Forest.
 
 ### Building a Flask Application
-### Integrating WebApp and Trained Model
+A flask application was developed in which the trained model was integrated. An automated_testing endpoint was generated for automatic retrieval of predictions by providing a text file of urls.
+
 ### Deploying as a Web Service
+The application was then deployed to Heroku. 
