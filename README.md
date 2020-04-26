@@ -37,6 +37,9 @@ The following attributes made more sense in indicating the flair of a post
 
 ### Exploratory Data Analysis
 Initial investigations of data included analysing the data distribution amongst classes wherein an imbalanced distribution was observed. The [R]eddiquette class had low data as compared to the other classes which can result in the minority class being treated as outlier and ignored.
+
+![Imabalanced Classes](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Images/imbalanced.png)
+
 The reason for this imbalance was found to be discontinuation of the [R]eddiquette flair 7 months ago.
 The class was then dropped from the dataset
 
@@ -51,6 +54,9 @@ Different models analysed:
 - Naive Bayes Classifier
 - Decision Trees
 - Random forest
+
+![Models Trail Summary](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Images/train.png)
+
 
 The best results were obtained using Random Forest.
 
