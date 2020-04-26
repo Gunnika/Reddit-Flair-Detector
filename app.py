@@ -34,26 +34,29 @@ def preprocess_input(text):
     filtered_sentence = " ".join(filtered_sentence.split())
     return(filtered_sentence)
 
-def detect_flair(url,loaded_model):
+def detect_flair(urls,loaded_model):
+    values = []
+    for url in urls:
+        submission = reddit.submission(url=url)
 
-    submission = reddit.submission(url=url)
+        data = {}
 
-    data = {}
+        data['title'] = submission.title
+        data['url'] = submission.url
 
-    data['title'] = submission.title
-    data['url'] = submission.url
+        # submission.comments.replace_more(limit=None)
+        # comment = ''
+        # for top_level_comment in submission.comments:
+        #     comment = comment + ' ' + top_level_comment.body
 
-    submission.comments.replace_more(limit=None)
-    comment = ''
-    for top_level_comment in submission.comments:
-        comment = comment + ' ' + top_level_comment.body
+        # data["comment"] = comment
+        data['title'] = preprocess_input(data['title'])
+        # data['comment'] = preprocess_input(data['comment'])
+        # data['combine'] = data['title'] + ' ' + data['comment']
 
-    data["comment"] = comment
-    data['title'] = preprocess_input(data['title'])
-    data['comment'] = preprocess_input(data['comment'])
-    data['combine'] = data['title'] + ' ' + data['comment']
+        values.append(flairs[loaded_model.predict([data['title']])[0]])
 
-    return flairs[loaded_model.predict([data['title']])[0]]
+    return values
 
 #creating instance of the class
 app=Flask(__name__)
@@ -61,25 +64,29 @@ app=Flask(__name__)
 #to tell flask what url shoud trigger the function index()
 @app.route('/' ,  methods=['GET', 'POST'])
 def index():
+    urls = []
     if flask.request.method == 'GET':
         return flask.render_template('index.html')
 
     if flask.request.method == 'POST':
         url = flask.request.form['posturl']
-        prediction = detect_flair(url, loaded_model)
-        return flask.render_template('index.html', result = str(prediction))
+        urls.append(url)
+        prediction = detect_flair(urls, loaded_model)
+        return flask.render_template('index.html', result = str(prediction[0]))
 
 
-@app.route('/automated_testing', methods = ['GET', 'POST'])
+@app.route('/automated_testing', methods = ['POST'])
 def automated_testing():
     if request.method == 'POST':
         predictions = {}
         f = request.files['upload_file']
+        keys = []
         if f:
             for line in f:
                 line = line.decode("utf-8")
-                pred = detect_flair(line , loaded_model)
-                predictions[line] = pred
+                keys.append(line.replace("\n", ""))
+            preds = detect_flair(keys , loaded_model)
+            predictions = dict(zip(keys, preds)) 
     return jsonify(predictions)
 
 
