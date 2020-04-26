@@ -23,6 +23,7 @@ The application can be found live at [Reddit Flair Detector](https://redditflair
 0. [Building a Flair Detector](#building-a-flair-detector)
 0. [Building a Flask Application](#building-a-flask-application)
 0. [Deploying as a Web Service](#deploying-as-a-web-service)
+0. [Automated Testing](#automated-testing)
 
 The whole process is nicely explained with code in this [Jupyter Notebook](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Jupyter%20Notebooks/Reddit%20Flair%20Detector.ipynb).
 
@@ -73,3 +74,9 @@ A flask application was developed in which the trained model was integrated. An 
 ### Deploying as a Web Service
 The application was then deployed to Heroku. 
 ![Web App](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Images/webapp.png)
+
+### Automated Testing
+A POST Request with key as upload_file and value as a text file consisting of URLs can be sent to https://redditflair-detector.herokuapp.com/automated_testing
+It will return a JSON object with the URL as the key and Prediction as the value.
+
+Please note that due to the limitations of PRAW, around 50 URLs can be processed at a time. Heroku can give a timeout error otherwise.
