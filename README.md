@@ -64,7 +64,8 @@ Different models analysed:
 ![Models Trail Summary](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Images/train.png)
 
 
-The best results were obtained using Random Forest.
+The best results were obtained using Random Forest (62.67%)
+To improve the accuracy even more, some deep learning techniques can be incorporated. BERT(Bidirectional Encoder Representations from Transformers) can be used to generate text embeddings and a better accuracy as well.
 
 ### Building a Flask Application
 A flask application was developed in which the trained model was integrated. An automated_testing endpoint was generated for automatic retrieval of predictions by providing a text file of urls.
