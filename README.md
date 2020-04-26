@@ -76,7 +76,8 @@ The application was then deployed to Heroku.
 ![Web App](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Images/webapp.png)
 
 ### Automated Testing
-A POST Request with key as upload_file and value as a text file consisting of URLs can be sent to https://redditflair-detector.herokuapp.com/automated_testing
+A POST Request with key as upload_file and value as a text file consisting of URLs can be sent to https://redditflair-detector.herokuapp.com/automated_testing.
+
 It will return a JSON object with the URL as the key and Prediction as the value.
 
 Please note that due to the limitations of PRAW, around 50 URLs can be processed at a time. Heroku can give a timeout error otherwise.
