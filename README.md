@@ -24,6 +24,8 @@ The application can be found live at [Reddit Flair Detector](https://redditflair
 0. [Building a Flask Application](#building-a-flask-application)
 0. [Deploying as a Web Service](#deploying-as-a-web-service)
 
+The whole process is nicely explained with code in this [Jupyter Notebook](https://github.com/Gunnika/Reddit-Flair-Detector/blob/master/Jupyter%20Notebooks/Reddit%20Flair%20Detector.ipynb).
+
 ### Data Acquisition
 [PRAW: The Python Reddit API Wrapper](https://praw.readthedocs.io/en/latest/) was used for extracting data. There are a number of Reddit datasets available on Bigquery and Kaggle as well. 
 For the purpose of creating my own dataset instead of the readily available alternatives, I went ahead with PRAW.
@@ -45,7 +47,11 @@ The class was then dropped from the dataset
 
 
 ### Data Pre-Processing
-The Data pre-processing step involved cleaning the data for better representation and usability. The stop words were removed, words tokenized and coverted into lowercase. 
+The Data pre-processing step involved cleaning the data for better representation and usability. In this:
+- The stop words were removed
+- words tokenized 
+- words converted into lowercase
+- Useful words concatenated to a sentence
 
 ### Building a Flair Detector
 Different models analysed:
