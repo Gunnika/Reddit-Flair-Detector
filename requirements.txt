@@ -1,7 +1,7 @@
 praw==6.5.1
 nltk==3.4.5
 Flask==1.0.2
-numpy==1.16.4
+numpy==1.22.0
 gunicorn==19.9.0
 Jinja2==2.11.3
 Werkzeug==0.15.6
